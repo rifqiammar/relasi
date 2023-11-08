@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      item.belongsTo(models.customer);
     }
   }
   item.init(
@@ -21,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       name: DataTypes.STRING,
       qty: DataTypes.INTEGER,
-      customer_id: {
+      customerId: {
         type: DataTypes.INTEGER,
         references: {
           model: "customer",

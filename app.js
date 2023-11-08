@@ -1,13 +1,25 @@
 const express = require("express");
-const { users, customer } = require("./models");
+const { item, customer } = require("./models");
 
 const app = express();
 
 app.get("/", async (req, res) => {
   try {
-    const result = await users.findAll();
-    res.send(result);
-  } catch (error) {}
+    // const data = await user.findAll();
+    const data = await customer.schema("purchasing").findAll({
+      include: item.schema("purchasing"),
+    });
+
+    res.status(200).json({
+      message: "Success",
+      data: data,
+    });
+  } catch (error) {
+    res.status(400).json({
+      message: "Error",
+      error: error.message,
+    });
+  }
 });
 
 app.listen(3003, () => {

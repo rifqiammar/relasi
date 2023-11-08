@@ -9,12 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      customer.hasMany(models.item, { foreignKey: "customerId" });
+      customer.hasMany(models.item, { foreignKey: "customer_id" });
     }
   }
   customer.init(
     {
-      id: {
+      customer_id: {
         autoIncrement: true,
         type: DataTypes.INTEGER,
         allowNull: false,

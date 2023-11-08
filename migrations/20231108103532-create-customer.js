@@ -7,7 +7,7 @@ module.exports = {
     await queryInterface.createTable(
       "customers",
       {
-        id: {
+        customer_id: {
           allowNull: false,
           autoIncrement: true,
           primaryKey: true,

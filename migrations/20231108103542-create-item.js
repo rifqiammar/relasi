@@ -19,7 +19,7 @@ module.exports = {
         qty: {
           type: Sequelize.INTEGER,
         },
-        customerId: {
+        customer_id: {
           type: Sequelize.INTEGER,
           foreignKey: true,
           references: {
@@ -27,7 +27,7 @@ module.exports = {
               tableName: "customers",
               schema: "purchasing",
             },
-            key: "id",
+            key: "customer_id",
           },
         },
         createdAt: {
